@@ -219,18 +219,4 @@ Contributions welcome — open issues for bugs or features. Please follow these 
 3. Add tests & update README if needed
 4. Create a PR with a clear description
 
----
 
-## 📄 License
-
-MIT © CourseVault
-
----
-
-## ✉️ Contact
-
-Built with ❤️. Questions or suggestions? Open an issue or ping the maintainer in the repo.
-
----
-
-*If you want, I can also generate a concise project description for your GitHub repo (the short blurb that appears under project name), badges (build, license), or a `CONTRIBUTING.md` and `.env.example` file — tell me which one and I’ll add it.*
