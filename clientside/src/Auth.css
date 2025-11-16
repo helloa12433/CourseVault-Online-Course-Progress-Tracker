@@ -1,0 +1,429 @@
+:root {
+  --bg: #f3f6f9;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --muted: #6b7280;
+  --danger: #ef4444;
+}
+.auth-card { position: relative; z-index: 50; background: rgba(255,255,255,0.96); }
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+  background: var(--bg);
+  margin: 0;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+  padding: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.brand .logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+}
+.tab {
+  flex: 1;
+  padding: 10px 12px;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: var(--muted);
+}
+.tab.active {
+  background: linear-gradient(90deg, #eef2ff, #f0f9ff);
+  border-color: rgba(37,99,235,0.14);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.auth-form .field {
+  display: block;
+  margin-bottom: 12px;
+}
+.auth-form .field span {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.auth-form input,
+.auth-form textarea,
+.auth-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6eef8;
+  outline: none;
+  font-size: 14px;
+  background: #fff;
+}
+.auth-form input:focus {
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.06);
+  border-color: #c7ddff;
+}
+
+.error {
+  color: var(--danger);
+  background: #fff1f1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  align-items: center;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+}
+.btn.ghost {
+  background: #f8fafc;
+  border: 1px solid #eef2ff;
+  color: #0f172a;
+}
+
+.footer-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+/* AddCourse / generic page layout */
+.page-wrap {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px;
+  position: relative;
+  z-index: 60; /* above BackgroundScene */
+}
+
+.card-form {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(255,255,255,0.98);
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.08);
+  position: relative;
+}
+
+/* title */
+.form-title {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* inputs */
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+.field-input, .field-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6eef8;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+}
+.field-input:focus, .field-textarea:focus {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.06);
+  border-color: #c7ddff;
+}
+
+/* textarea tweak */
+.field-textarea { min-height: 110px; resize: vertical; }
+
+/* actions row */
+.form-actions { display:flex; gap:10px; margin-top: 8px; align-items:center; }
+.btn { padding: 10px 14px; border-radius: 8px; border: none; cursor: pointer; font-weight: 700; }
+.btn.primary { background: linear-gradient(90deg,#2563eb,#60a5fa); color: white; box-shadow: 0 8px 24px rgba(37,99,235,0.12); }
+.btn.ghost { background: #f8fafc; border: 1px solid #eef2ff; color: #0f172a; }
+
+/* small screens */
+@media (max-width:720px) {
+  .card-form { padding: 18px; border-radius: 10px; }
+  .page-wrap { padding: 22px 12px; }
+}
+/* animated word-by-word description */
+.animated-desc {
+  font-size: 14px;
+  color: #475569;
+  opacity: 0.95;
+  min-height: 24px;
+  line-height: 1.2;
+  transition: opacity 0.3s ease;
+  font-weight: 600;
+}
+
+/* slightly larger style for the brand-area */
+.big-animated {
+  font-size: 15px;
+  color: #475569;
+}
+
+/* typing caret */
+.animated-desc .blink {
+  display: inline-block;
+  margin-left: 6px;
+  color: #2563eb;
+  opacity: 0.95;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { opacity: 0; }
+}
+
+/* make sure the brand + animated text align nicely on smaller screens */
+@media (max-width: 860px) {
+  .brand { display: block; }
+  .animated-desc { margin-top: 8px; font-size: 13px; color: #475569; }
+}
+.password-field {
+  position: relative;
+}
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-wrapper input {
+  flex: 1;
+  padding-right: 40px; /* space for icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}
+/* ===== interactive card hover movement ===== */
+.course-card {
+  --tx: 0px;
+  --ty: 0px;
+  --rot: 0deg;
+  will-change: transform;
+  /* gentle base shadow */
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
+}
+
+/* when hovered we increase shadow so it 'pops' */
+.course-card.is-hovered {
+  box-shadow: 0 12px 40px rgba(3,7,18,0.28);
+  transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
+}
+
+/* also add a slight `:hover` fallback so keyboard focus sees it too */
+.course-card:hover {
+  transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
+  box-shadow: 0 12px 40px rgba(3,7,18,0.28);
+}
+
+/* buttons: edit/delete pinkish hover */
+.course-card .edit-btn,
+.course-card .del-btn {
+  background: #f3f4f6;
+  color: #0f172a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 0;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 140ms ease, background 160ms;
+  box-shadow: 0 2px 8px rgba(2,6,23,0.06);
+}
+
+/* pinkish gradient on hover */
+.course-card .edit-btn:hover,
+.course-card .del-btn:hover {
+  background: linear-gradient(180deg, rgba(255,178,199,0.98), rgba(255,144,176,0.98));
+  color: #3b0b17;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(239,68,68,0.12);
+}
+
+/* small accent for the view button */
+.course-card .view {
+  background: transparent;
+  border: 1px solid #e6eef8;
+  color: #2563eb;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* reduce focus outline but keep accessibility */
+.course-card button:focus {
+  outline: 3px solid rgba(37,99,235,0.18);
+  outline-offset: 3px;
+}
+
+/* optional – gentle transform for the card content while hovered */
+.course-card.is-hovered h3 {
+  transform: translateY(-2px);
+  transition: transform 220ms;
+}
+
+/* ensure smoothness on mobile / touch (disable large translations if screen small) */
+@media (max-width: 720px) {
+  .course-card { transition: transform 180ms; }
+  .course-card.is-hovered { box-shadow: 0 8px 24px rgba(3,7,18,0.16); }
+  .course-card .edit-btn:hover, .course-card .del-btn:hover { transform: translateY(0); }
+}
+/* ===== Card hover: bluish highlight + movement (stronger) ===== */
+.course-card {
+  --tx: 0px;
+  --ty: 0px;
+  --rot: 0deg;
+  will-change: transform, box-shadow;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms, background 220ms, border-color 220ms;
+  background: linear-gradient(180deg,#ffffff,#fbfdff); /* subtle off-white */
+  border: 1px solid rgba(2,6,23,0.04);
+}
+
+/* when JS adds .is-hovered OR user :hover */
+.course-card.is-hovered,
+.course-card:hover {
+  /* stronger pop and bluish glow */
+  transform: translate(var(--tx,0px), var(--ty,0px)) rotate(var(--rot,0deg)) scale(1.007);
+  box-shadow:
+    0 18px 50px rgba(2,6,23,0.36),    /* deep shadow */
+    0 0 30px rgba(59,130,246,0.06);   /* bluish bloom */
+  border-color: rgba(59,130,246,0.18);
+  background: linear-gradient(180deg,#ffffff,#f7fbff);
+}
+
+/* small lift for the header texts when hovered */
+.course-card.is-hovered h3,
+.course-card:hover h3 {
+  transform: translateY(-4px);
+  transition: transform 220ms;
+}
+
+/* make progress bar accent slightly brighter on hover */
+.course-card.is-hovered .progress-fill,
+.course-card:hover .progress-fill {
+  box-shadow: 0 6px 18px rgba(34,197,94,0.12);
+}
+
+/* ===== Buttons: keep pinkish for edit/delete, slightly stronger on hover ===== */
+.course-card .edit-btn,
+.course-card .del-btn {
+  background: #f3f4f6;
+  color: #0f172a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 0;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 160ms;
+  box-shadow: 0 4px 14px rgba(2,6,23,0.06);
+}
+
+.course-card .edit-btn:hover,
+.course-card .del-btn:hover {
+  background: linear-gradient(180deg, #ffd7e5, #ffb0cf); /* pinkish */
+  color: #3b0b17;
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(239,68,68,0.12);
+}
+
+/* ===== Header input/select hover/focus bluish glow ===== */
+input[placeholder], input, select {
+  transition: box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: inherit;
+}
+
+input:hover, input:focus, select:hover, select:focus {
+  outline: none;
+  border-color: rgba(96,165,250,0.32);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.08), inset 0 1px 0 rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.045);
+}
+
+/* make search input more obvious on hover */
+input[placeholder]:hover, input[placeholder]:focus {
+  box-shadow: 0 14px 50px rgba(37,99,235,0.05);
+}
+
+/* ===== small responsive / touch fallbacks ===== */
+@media (max-width: 720px) {
+  .course-card.is-hovered,
+  .course-card:hover {
+    transform: translate(0,0) scale(1); /* disable big translations on small screens */
+    box-shadow: 0 8px 24px rgba(3,7,18,0.12);
+  }
+  .course-card .edit-btn:hover,
+  .course-card .del-btn:hover { transform: translateY(0); }
+}

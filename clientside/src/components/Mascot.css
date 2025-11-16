@@ -1,0 +1,119 @@
+/* mascot overlay - full-screen non-blocking */
+.mascot-wrap {
+  position: fixed;
+  right: 6%;
+  bottom: 6%;
+  width: 320px;
+  height: 260px;
+  pointer-events: none; /* default no clicks pass through */
+  z-index: 120;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  transform-origin: center;
+  transition: transform 0.45s ease, right 0.45s ease, bottom 0.45s ease;
+}
+
+/* allow the CTA to be clickable */
+.mascot-speech { pointer-events: auto; }
+
+.mascot-body { width: 160px; height: 160px; transform-origin: center; animation: bob 3s ease-in-out infinite; }
+@keyframes bob {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-6px) }
+  100% { transform: translateY(0) }
+}
+
+/* small waving arm animation */
+.mascot-arm { transform-origin: 10px 6px; animation: armWave 1.6s ease-in-out infinite; }
+@keyframes armWave {
+  0% { transform: rotate(-18deg) }
+  50% { transform: rotate(8deg) }
+  100% { transform: rotate(-18deg) }
+}
+
+/* speech bubble */
+.mascot-speech {
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  padding: 14px;
+  border-radius: 12px;
+  min-width: 220px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  pointer-events: auto;
+}
+.mascot-text { color: #0f172a; font-weight:600; margin-bottom:8px; font-size:14px; line-height:1.2; }
+.mascot-cta {
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:8px;
+  background: linear-gradient(90deg,#2563eb,#60a5fa);
+  color: white;
+  font-weight:700;
+  cursor:pointer;
+  user-select:none;
+  transition: transform 0.12s ease, box-shadow .12s;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.14);
+}
+.mascot-cta:active { transform: translateY(1px) }
+
+/* pointing arrow visual */
+.mascot-arrow {
+  position: absolute;
+  left: -28%;
+  bottom: 34%;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at 30% 30%, rgba(37,99,235,0.12), rgba(37,99,235,0.02) 40%, rgba(0,0,0,0) 60%);
+  transform: rotate(-18deg);
+  transition: all 0.45s ease;
+  pointer-events:none;
+  filter: blur(.6px);
+}
+
+/* different stage positions */
+
+/* mascot centered (intro) */
+.mascot--center { right: 50%; bottom: 10%; transform: translateX(50%); }
+
+/* point to login card (assumes login card is center) */
+.mascot--point-login {
+  right: 30%; bottom: 10%;
+}
+.mascot--point-login .mascot-arm { animation: armPoint 1.6s ease-in-out infinite; transform-origin: 10px 6px; }
+@keyframes armPoint {
+  0% { transform: rotate(-30deg) }
+  50% { transform: rotate(-6deg) }
+  100% { transform: rotate(-30deg) }
+}
+.mascot--point-login .mascot-arrow {
+  left: -20%; bottom: 28%; transform: rotate(-28deg); width: 240px; height: 240px; opacity: .85;
+}
+
+/* celebrate: mascot jumps up and confetti effect (simple dot sparkles) */
+.mascot--celebrate {
+  right: 10%; bottom: 8%;
+}
+.mascot--celebrate .mascot-body { animation: cheer 0.9s ease-in-out infinite; transform-origin: center bottom; }
+@keyframes cheer {
+  0% { transform: translateY(0) scale(1) }
+  50% { transform: translateY(-16px) scale(1.04) }
+  100% { transform: translateY(0) scale(1) }
+}
+.mascot--celebrate .mascot-arrow { display:none; }
+
+/* point to dashboard area (left area) */
+.mascot--point-dashboard {
+  right: 6%; bottom: 20%;
+}
+.mascot--point-dashboard .mascot-arrow {
+  left: -36%;
+  bottom: 6%;
+  transform: rotate(6deg);
+  width: 320px; height: 220px; opacity: 0.75;
+}
+
+/* responsive: hide mascot on very small screens */
+@media (max-width: 640px) {
+  .mascot-wrap { display: none; }
+}
