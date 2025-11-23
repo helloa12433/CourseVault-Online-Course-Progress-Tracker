@@ -210,13 +210,5 @@ From project root, you can add a script using `concurrently` that runs both serv
 
 ---
 
-## 🤝 Contributing
-
-Contributions welcome — open issues for bugs or features. Please follow these steps:
-
-1. Fork the repo
-2. Create a feature branch
-3. Add tests & update README if needed
-4. Create a PR with a clear description
 
 
